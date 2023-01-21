@@ -1,4 +1,8 @@
+import 'package:design/src/challenge/cuadrado_animado_page.dart';
+//import 'package:design/src/pages/animaciones_page.dart';
 import 'package:flutter/material.dart';
+
+//import 'package:design/src/pages/headers_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -7,17 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
-    );
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Diseños App',
+        home: CuadradoAnimadpPage());
   }
 }
