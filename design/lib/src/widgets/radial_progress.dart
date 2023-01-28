@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class RadialProgress extends StatefulWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final porcentaje;
   final Color colorPrimario;
   final Color colorSecundario;
@@ -30,8 +31,8 @@ class _RadialProgressState extends State<RadialProgress>
   @override
   void initState() {
     porcentajeAnterior = widget.porcentaje;
-    controller = new AnimationController(
-        vsync: this, duration: Duration(milliseconds: 200));
+    controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 200));
     super.initState();
   }
 
@@ -54,7 +55,7 @@ class _RadialProgressState extends State<RadialProgress>
       animation: controller,
       builder: (BuildContext context, Widget? child) {
         return Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           width: double.infinity,
           height: double.infinity,
           child: CustomPaint(
@@ -74,6 +75,7 @@ class _RadialProgressState extends State<RadialProgress>
 
 class _MiRadialProgress extends CustomPainter {
   //
+  // ignore: prefer_typing_uninitialized_variables
   final porcentaje;
   final Color colorPrimario;
   final Color colorSecundario;

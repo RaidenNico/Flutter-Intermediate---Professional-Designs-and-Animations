@@ -1,5 +1,6 @@
 import 'package:design/src/widgets/slideshow.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_svg/svg.dart';
 
 class SlideshowPage extends StatelessWidget {
@@ -9,12 +10,12 @@ class SlideshowPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Sliders"),
+          title: const Text("Sliders"),
           backgroundColor: Colors.orange,
         ),
         backgroundColor: Colors.deepOrange[100],
         body: Column(
-          children: <Widget>[
+          children: const <Widget>[
             Expanded(child: MiSlideshow()),
             Expanded(child: MiSlideshow())
           ],

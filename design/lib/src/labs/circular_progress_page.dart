@@ -18,8 +18,8 @@ class _CircularProgressPageState extends State<CircularProgressPage>
 
   @override
   void initState() {
-    controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 800));
+    controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 800));
 
     controller.addListener(() {
       //print("valor controller: ${controller.value}");
@@ -41,7 +41,6 @@ class _CircularProgressPageState extends State<CircularProgressPage>
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.refresh),
           backgroundColor: Colors.orange,
           onPressed: () {
             porcentaje = nuevoPorcentaje;
@@ -54,10 +53,11 @@ class _CircularProgressPageState extends State<CircularProgressPage>
             controller.forward(from: 0.0);
 
             setState(() {});
-          }),
+          },
+          child: const Icon(Icons.refresh)),
       body: Center(
         child: Container(
-          padding: EdgeInsets.all(5),
+          padding: const EdgeInsets.all(5),
           width: 300,
           height: 300,
           //color: Colors.red,
@@ -71,6 +71,7 @@ class _CircularProgressPageState extends State<CircularProgressPage>
 }
 
 class _MiRadialProgress extends CustomPainter {
+  // ignore: prefer_typing_uninitialized_variables
   final porcentaje;
   _MiRadialProgress(this.porcentaje);
 

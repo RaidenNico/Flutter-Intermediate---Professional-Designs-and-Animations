@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 
 //
@@ -11,8 +12,9 @@ class Slideshow extends StatelessWidget {
   final double bulletPrimario;
   final double bulletSecundario;
 
-  Slideshow(
-      {required this.slides,
+  const Slideshow(
+      {super.key,
+      required this.slides,
       this.puntosArriba = false,
       this.colorPrimario = Colors.blue,
       this.colorSecundario = Colors.red,
@@ -22,17 +24,15 @@ class Slideshow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => new _SlideshowModel(),
+      create: (_) => _SlideshowModel(),
       child: SafeArea(child: Center(child: Builder(
         builder: (BuildContext context) {
-          Provider.of<_SlideshowModel>(context).colorPrimario =
-              this.colorPrimario;
+          Provider.of<_SlideshowModel>(context).colorPrimario = colorPrimario;
           Provider.of<_SlideshowModel>(context).colorSecundario =
-              this.colorSecundario;
-          Provider.of<_SlideshowModel>(context).bulletPrimario =
-              this.bulletPrimario;
+              colorSecundario;
+          Provider.of<_SlideshowModel>(context).bulletPrimario = bulletPrimario;
           Provider.of<_SlideshowModel>(context).bulletSecundario =
-              this.bulletSecundario;
+              bulletSecundario;
 
           return _CrearEstructuraSlidesshow(
               puntosArriba: puntosArriba, slides: slides);
@@ -44,7 +44,6 @@ class Slideshow extends StatelessWidget {
 
 class _CrearEstructuraSlidesshow extends StatelessWidget {
   const _CrearEstructuraSlidesshow({
-    super.key,
     required this.puntosArriba,
     required this.slides,
   });
@@ -56,9 +55,9 @@ class _CrearEstructuraSlidesshow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        if (this.puntosArriba) _Dots(this.slides.length),
-        Expanded(child: _Slides(this.slides)),
-        if (!this.puntosArriba) _Dots(this.slides.length),
+        if (puntosArriba) _Dots(slides.length),
+        Expanded(child: _Slides(slides)),
+        if (!puntosArriba) _Dots(slides.length),
       ],
     );
   }
@@ -67,16 +66,16 @@ class _CrearEstructuraSlidesshow extends StatelessWidget {
 class _Dots extends StatelessWidget {
   final int totalSlides;
 
-  _Dots(this.totalSlides);
+  const _Dots(this.totalSlides);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 70,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(this.totalSlides, (i) => _Dot(i)),
+        children: List.generate(totalSlides, (i) => _Dot(i)),
       ),
     );
   }
@@ -85,7 +84,7 @@ class _Dots extends StatelessWidget {
 class _Dot extends StatelessWidget {
   final int index;
 
-  _Dot(this.index);
+  const _Dot(this.index);
 
   @override
   Widget build(BuildContext context) {
@@ -103,10 +102,10 @@ class _Dot extends StatelessWidget {
     }
 
     return AnimatedContainer(
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       width: tamano,
       height: tamano,
-      margin: EdgeInsets.symmetric(horizontal: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(color: color, shape: BoxShape.circle),
     );
   }
@@ -114,14 +113,14 @@ class _Dot extends StatelessWidget {
 
 class _Slides extends StatefulWidget {
   final List<Widget> slides;
-  _Slides(this.slides);
+  const _Slides(this.slides);
 
   @override
   State<_Slides> createState() => _SlidesState();
 }
 
 class _SlidesState extends State<_Slides> {
-  final pageViewController = new PageController();
+  final pageViewController = PageController();
 
   @override
   void initState() {
@@ -141,24 +140,22 @@ class _SlidesState extends State<_Slides> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: PageView(
-        controller: pageViewController,
-        children: widget.slides.map((slide) => _Slide(slide)).toList(),
-      ),
+    return PageView(
+      controller: pageViewController,
+      children: widget.slides.map((slide) => _Slide(slide)).toList(),
     );
   }
 }
 
 class _Slide extends StatelessWidget {
   final Widget slide;
-  _Slide(this.slide);
+  const _Slide(this.slide);
   @override
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
         height: double.infinity,
-        padding: EdgeInsets.all(30),
+        padding: const EdgeInsets.all(30),
         child: slide);
   }
 }
@@ -170,34 +167,38 @@ class _SlideshowModel with ChangeNotifier {
   double _bulletPrimario = 12;
   double _bulletSecundario = 12;
 
-  double get curretPage => this._currentPage;
+  double get curretPage => _currentPage;
 
   set currentPage(double pagina) {
-    this._currentPage = pagina;
+    _currentPage = pagina;
     notifyListeners();
   }
 
-  Color get colorPrimario => this._colorPrimario;
+  // ignore: unnecessary_getters_setters
+  Color get colorPrimario => _colorPrimario;
   set colorPrimario(Color color) {
-    this._colorPrimario = color;
+    _colorPrimario = color;
     //notifyListeners();
   }
 
-  Color get colorSecundario => this._colorSecundario;
+  // ignore: unnecessary_getters_setters
+  Color get colorSecundario => _colorSecundario;
   set colorSecundario(Color color) {
-    this._colorSecundario = color;
+    _colorSecundario = color;
     //notifyListeners();
   }
 
-  double get bulletPrimario => this._bulletPrimario;
+  // ignore: unnecessary_getters_setters
+  double get bulletPrimario => _bulletPrimario;
   set bulletPrimario(double tamano) {
-    this._bulletPrimario = tamano;
+    _bulletPrimario = tamano;
     //notifyListeners();
   }
 
-  double get bulletSecundario => this._bulletSecundario;
+  // ignore: unnecessary_getters_setters
+  double get bulletSecundario => _bulletSecundario;
   set bulletSecundario(double tamano) {
-    this._bulletSecundario = tamano;
+    _bulletSecundario = tamano;
     //notifyListeners();
   }
 }
