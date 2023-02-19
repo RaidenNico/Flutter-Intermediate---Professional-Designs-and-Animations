@@ -208,7 +208,7 @@ class HeaderWave extends StatelessWidget {
       height: double.infinity,
       width: double.infinity,
       child: CustomPaint(
-        painter: _HeaderWavePainter(this.color),
+        painter: _HeaderWavePainter(color),
       ),
     );
   }
@@ -224,7 +224,7 @@ class _HeaderWavePainter extends CustomPainter {
     final lapiz = Paint();
 
     // Propiedades
-    lapiz.color = this.color; //const Color(0xff615AAB);
+    lapiz.color = color; //const Color(0xff615AAB);
     lapiz.style = PaintingStyle.fill; // .fill .stroke
     lapiz.strokeWidth = 20;
 

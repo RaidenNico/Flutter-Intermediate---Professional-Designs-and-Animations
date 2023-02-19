@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +11,7 @@ class NavagacionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => new _NotificationModel(),
+      create: (_) => _NotificationModel(),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
@@ -99,7 +101,7 @@ class BotonFlotante extends StatelessWidget {
 }
 
 class _NotificationModel extends ChangeNotifier {
-  int _numero = 0;
+  final int _numero = 0;
 
   late AnimationController _bounceController;
 
@@ -108,8 +110,9 @@ class _NotificationModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  AnimationController get bounceController => this._bounceController;
+  // ignore: unnecessary_getters_setters
+  AnimationController get bounceController => _bounceController;
   set bounceController(AnimationController controller) {
-    this._bounceController = controller;
+    _bounceController = controller;
   }
 }

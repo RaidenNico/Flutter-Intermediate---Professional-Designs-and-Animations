@@ -3,6 +3,7 @@ import 'package:design/src/widgets/slideshow.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_svg/svg.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 
 class SlideshowPage extends StatelessWidget {
@@ -33,7 +34,7 @@ class MiSlideshow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeChanger>(context);
-    final accentColor = appTheme.currentTheme.accentColor;
+    final accentColor = appTheme.currentTheme.colorScheme.secondary;
 
     return Slideshow(
       bulletPrimario: 17,

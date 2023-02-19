@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:design/src/pages/animaciones_page.dart';
@@ -9,13 +11,16 @@ import 'package:design/src/pages/pinterest_page.dart';
 import 'package:design/src/pages/slideshow_page.dart';
 
 final pageRoutes = <_Route>[
-  _Route(FontAwesomeIcons.slideshare, "Slideshow", SlideshowPage()),
-  _Route(FontAwesomeIcons.ambulance, "Emergencia", EmergencyPage()),
-  _Route(FontAwesomeIcons.heading, "Encabezados", HeadersPage()),
-  _Route(FontAwesomeIcons.peopleCarry, "Cuadro Animado", AnimacionesPage()),
+  _Route(FontAwesomeIcons.slideshare, "Slideshow", const SlideshowPage()),
+  // ignore: deprecated_member_use
+  _Route(FontAwesomeIcons.ambulance, "Emergencia", const EmergencyPage()),
+  _Route(FontAwesomeIcons.heading, "Encabezados", const HeadersPage()),
+  // ignore: deprecated_member_use
   _Route(
-      FontAwesomeIcons.circleNotch, "Barra Progreso", GraficasCircularesPage()),
-  _Route(FontAwesomeIcons.pinterest, "Pinterest", PinterestPage()),
+      FontAwesomeIcons.peopleCarry, "Cuadro Animado", const AnimacionesPage()),
+  _Route(FontAwesomeIcons.circleNotch, "Barra Progreso",
+      const GraficasCircularesPage()),
+  _Route(FontAwesomeIcons.pinterest, "Pinterest", const PinterestPage()),
 ];
 
 class _Route {

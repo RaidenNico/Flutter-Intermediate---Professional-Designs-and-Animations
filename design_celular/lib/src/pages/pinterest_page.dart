@@ -50,7 +50,7 @@ class _PinterestMenuLocation extends StatelessWidget {
             child: PinterestMenu(
               mostrar: mostrar,
               backgroundColor: appTheme.scaffoldBackgroundColor,
-              activeColor: appTheme.accentColor,
+              activeColor: appTheme.colorScheme.secondary,
               // inactiveColor: Colors.blue,
               items: [
                 PinterestButton(icon: Icons.pie_chart, onPressed: () {}),

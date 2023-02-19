@@ -1,3 +1,7 @@
+// ignore: duplicate_ignore
+// ignore: unused_import
+// ignore_for_file: depend_on_referenced_packages, unused_import
+
 import 'package:design/src/labs/slideshow_page.dart';
 import 'package:design/src/models/layout_model.dart';
 import 'package:design/src/routes/routes.dart';
@@ -16,14 +20,14 @@ class LauncherTabletPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Diseños en Flutter - Tablet"),
-        backgroundColor: appTheme.currentTheme.accentColor,
+        title: const Text("Diseños en Flutter - Tablet"),
+        backgroundColor: appTheme.currentTheme.colorScheme.secondary,
       ),
-      drawer: _MenuPrincipal(),
+      drawer: const _MenuPrincipal(),
 
       body: Row(
         children: <Widget>[
-          Container(
+          const SizedBox(
             width: 300,
             height: double.infinity,
             child: _ListaOpciones(),
@@ -33,7 +37,7 @@ class LauncherTabletPage extends StatelessWidget {
             height: double.infinity,
             color: (appTheme.darkTheme)
                 ? Colors.grey
-                : appTheme.currentTheme.accentColor,
+                : appTheme.currentTheme.colorScheme.secondary,
           ),
           Expanded(
             child: layoutModel.currentPage,
@@ -47,20 +51,21 @@ class LauncherTabletPage extends StatelessWidget {
 }
 
 class _ListaOpciones extends StatelessWidget {
-  const _ListaOpciones({super.key});
+  const _ListaOpciones();
 
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
 
     return ListView.separated(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       itemBuilder: (context, i) => ListTile(
-        leading: FaIcon(pageRoutes[i].icon, color: appTheme.accentColor),
+        leading:
+            FaIcon(pageRoutes[i].icon, color: appTheme.colorScheme.secondary),
         title: Text(pageRoutes[i].titulo),
         trailing: Icon(
           Icons.chevron_right,
-          color: appTheme.accentColor,
+          color: appTheme.colorScheme.secondary,
         ),
         onTap: () {
           //Navigator.push(context,
@@ -78,35 +83,34 @@ class _ListaOpciones extends StatelessWidget {
 }
 
 class _MenuPrincipal extends StatelessWidget {
-  const _MenuPrincipal({super.key});
+  const _MenuPrincipal();
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeChanger>(context);
-    final accentColor = appTheme.currentTheme.accentColor;
+    final accentColor = appTheme.currentTheme.colorScheme.secondary;
     return Drawer(
-      child: Container(
-          child: Column(
+      child: Column(
         children: <Widget>[
           SafeArea(
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               height: 200,
               child: CircleAvatar(
                 backgroundColor: accentColor,
-                child: Text(
+                child: const Text(
                   "FH",
                   style: TextStyle(fontSize: 50),
                 ),
               ),
             ),
           ),
-          Expanded(child: _ListaOpciones()),
+          const Expanded(child: _ListaOpciones()),
           ListTile(
             leading: Icon(
               Icons.lightbulb_outline,
               color: accentColor,
             ),
-            title: Text("Dark Mode"),
+            title: const Text("Dark Mode"),
             trailing: Switch.adaptive(
                 value: appTheme.darkTheme,
                 activeColor: accentColor,
@@ -122,7 +126,7 @@ class _MenuPrincipal extends StatelessWidget {
                 Icons.add_to_home_screen,
                 color: accentColor,
               ),
-              title: Text("Custom Theme"),
+              title: const Text("Custom Theme"),
               trailing: Switch.adaptive(
                 value: appTheme.customtheme,
                 activeColor: accentColor,
@@ -131,7 +135,7 @@ class _MenuPrincipal extends StatelessWidget {
             ),
           ),
         ],
-      )),
+      ),
     );
   }
 }

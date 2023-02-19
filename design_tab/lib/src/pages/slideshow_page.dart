@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages, duplicate_ignore
+
 import 'package:design/src/theme/theme.dart';
 import 'package:design/src/widgets/slideshow.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +20,8 @@ class SlideshowPage extends StatelessWidget {
     }
 
     final children = [
-      Expanded(child: MiSlideshow()),
-      Expanded(child: MiSlideshow())
+      const Expanded(child: MiSlideshow()),
+      const Expanded(child: MiSlideshow())
     ];
 
     return Scaffold(
@@ -40,7 +42,7 @@ class MiSlideshow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeChanger>(context);
-    final accentColor = appTheme.currentTheme.accentColor;
+    final accentColor = appTheme.currentTheme.colorScheme.secondary;
 
     return Slideshow(
       bulletPrimario: 17,

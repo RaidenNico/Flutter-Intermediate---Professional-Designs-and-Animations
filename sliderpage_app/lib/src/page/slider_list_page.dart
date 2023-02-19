@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SliverListPage extends StatelessWidget {
+  const SliverListPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,10 +26,10 @@ class _BotonNewList extends StatelessWidget {
       height: 100,
       child: MaterialButton(
         onPressed: () {},
-        color: Color(0xffED6762),
-        shape: RoundedRectangleBorder(
+        color: const Color(0xffED6762),
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(topLeft: Radius.circular(50))),
-        child: Text(
+        child: const Text(
           "Create New List",
           style: TextStyle(
               color: Colors.white,
@@ -42,22 +44,22 @@ class _BotonNewList extends StatelessWidget {
 
 class _MainScroll extends StatelessWidget {
   final items = [
-    _ListItem('Orange', Color(0xffF08F66)),
-    _ListItem('Family', Color(0xffF2A38A)),
-    _ListItem('Subscriptions', Color(0xffF7CDD5)),
-    _ListItem('Books', Color(0xffFCEBAF)),
-    _ListItem('Orange', Color(0xffF08F66)),
-    _ListItem('Family', Color(0xffF2A38A)),
-    _ListItem('Subscriptions', Color(0xffF7CDD5)),
-    _ListItem('Books', Color(0xffFCEBAF)),
-    _ListItem('Orange', Color(0xffF08F66)),
-    _ListItem('Family', Color(0xffF2A38A)),
-    _ListItem('Subscriptions', Color(0xffF7CDD5)),
-    _ListItem('Books', Color(0xffFCEBAF)),
-    _ListItem('Orange', Color(0xffF08F66)),
-    _ListItem('Family', Color(0xffF2A38A)),
-    _ListItem('Subscriptions', Color(0xffF7CDD5)),
-    _ListItem('Books', Color(0xffFCEBAF)),
+    const _ListItem('Orange', Color(0xffF08F66)),
+    const _ListItem('Family', Color(0xffF2A38A)),
+    const _ListItem('Subscriptions', Color(0xffF7CDD5)),
+    const _ListItem('Books', Color(0xffFCEBAF)),
+    const _ListItem('Orange', Color(0xffF08F66)),
+    const _ListItem('Family', Color(0xffF2A38A)),
+    const _ListItem('Subscriptions', Color(0xffF7CDD5)),
+    const _ListItem('Books', Color(0xffFCEBAF)),
+    const _ListItem('Orange', Color(0xffF08F66)),
+    const _ListItem('Family', Color(0xffF2A38A)),
+    const _ListItem('Subscriptions', Color(0xffF7CDD5)),
+    const _ListItem('Books', Color(0xffFCEBAF)),
+    const _ListItem('Orange', Color(0xffF08F66)),
+    const _ListItem('Family', Color(0xffF2A38A)),
+    const _ListItem('Subscriptions', Color(0xffF7CDD5)),
+    const _ListItem('Books', Color(0xffFCEBAF)),
   ];
 
   @override
@@ -82,8 +84,8 @@ class _MainScroll extends StatelessWidget {
                 ))),
 
         SliverList(
-            delegate:
-                SliverChildListDelegate([...items, SizedBox(height: 100)])),
+            delegate: SliverChildListDelegate(
+                [...items, const SizedBox(height: 100)])),
       ],
     );
   }
@@ -100,6 +102,7 @@ class _SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
+    // ignore: todo
     // TODO: implement build
     return SizedBox.expand(child: child);
   }
@@ -123,23 +126,24 @@ class _Titulo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(height: 30),
+        const SizedBox(height: 30),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-          child: Text(
+          margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          child: const Text(
             "New",
             style: TextStyle(color: Color(0xff532128), fontSize: 50),
           ),
         ),
         Stack(
           children: <Widget>[
-            SizedBox(width: 100),
+            const SizedBox(width: 100),
             Positioned(
                 bottom: 8,
-                child:
-                    Container(width: 120, height: 8, color: Color(0xffF7CDD5))),
+                child: Container(
+                    width: 120, height: 8, color: const Color(0xffF7CDD5))),
+            // ignore: avoid_unnecessary_containers
             Container(
-              child: Text(
+              child: const Text(
                 "List",
                 style: TextStyle(
                     color: Color(0xffD93A30),
@@ -154,17 +158,18 @@ class _Titulo extends StatelessWidget {
   }
 }
 
+// ignore: unused_element
 class _ListaTareas extends StatelessWidget {
   //
   final items = [
-    _ListItem('Orange', Color(0xffF08F66)),
-    _ListItem('Family', Color(0xffF2A38A)),
-    _ListItem('Subscriptions', Color(0xffF7CDD5)),
-    _ListItem('Books', Color(0xffFCEBAF)),
-    _ListItem('Orange', Color(0xffF08F66)),
-    _ListItem('Family', Color(0xffF2A38A)),
-    _ListItem('Subscriptions', Color(0xffF7CDD5)),
-    _ListItem('Books', Color(0xffFCEBAF)),
+    const _ListItem('Orange', Color(0xffF08F66)),
+    const _ListItem('Family', Color(0xffF2A38A)),
+    const _ListItem('Subscriptions', Color(0xffF7CDD5)),
+    const _ListItem('Books', Color(0xffFCEBAF)),
+    const _ListItem('Orange', Color(0xffF08F66)),
+    const _ListItem('Family', Color(0xffF2A38A)),
+    const _ListItem('Subscriptions', Color(0xffF7CDD5)),
+    const _ListItem('Books', Color(0xffFCEBAF)),
   ];
 
   @override
@@ -184,17 +189,17 @@ class _ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(
-        titulo,
-        style: TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
-      ),
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       alignment: Alignment.centerLeft,
       height: 130,
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(30)),
+      child: Text(
+        titulo,
+        style: const TextStyle(
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+      ),
     );
   }
 }

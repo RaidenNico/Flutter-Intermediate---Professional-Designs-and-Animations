@@ -6,17 +6,18 @@ class ThemeChanger with ChangeNotifier {
 
   late ThemeData _currentTheme;
 
-  bool get darkTheme => this._darkTheme;
-  bool get customtheme => this._customTheme;
-  ThemeData get currentTheme => this._currentTheme;
+  bool get darkTheme => _darkTheme;
+  bool get customtheme => _customTheme;
+  ThemeData get currentTheme => _currentTheme;
 
   ThemeChanger(int theme) {
     switch (theme) {
       case 1:
         _darkTheme = false;
         _customTheme = false;
-        _currentTheme =
-            ThemeData.light().copyWith(accentColor: Colors.deepPurple);
+        _currentTheme = ThemeData.light().copyWith(
+            colorScheme: ColorScheme.fromSwatch()
+                .copyWith(secondary: Colors.deepPurple));
         break;
 
       case 2:
@@ -44,9 +45,9 @@ class ThemeChanger with ChangeNotifier {
     if (value) {
       _currentTheme = ThemeData.dark();
     } else {
-      _currentTheme =
-          ThemeData.light().copyWith(accentColor: Colors.deepPurple);
-      ;
+      _currentTheme = ThemeData.light().copyWith(
+          colorScheme:
+              ColorScheme.fromSwatch().copyWith(secondary: Colors.deepPurple));
     }
     notifyListeners();
   }
@@ -57,10 +58,11 @@ class ThemeChanger with ChangeNotifier {
 
     if (value) {
       _currentTheme = ThemeData.dark().copyWith(
-          accentColor: Color(0xff48A0EB),
           primaryColorLight: Colors.white,
-          scaffoldBackgroundColor: Color(0xff16202B),
-          textTheme: TextTheme(bodyText1: TextStyle(color: Colors.white))
+          scaffoldBackgroundColor: const Color(0xff16202B),
+          textTheme: const TextTheme(bodyLarge: TextStyle(color: Colors.white)),
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: const Color(0xff48A0EB))
           // textTheme.body1.color
           );
     } else {

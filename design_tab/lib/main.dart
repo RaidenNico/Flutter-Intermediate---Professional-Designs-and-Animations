@@ -7,6 +7,8 @@
 //!import 'package:design/src/pages/slideshow_page.dart';
 //!import 'package:design/src/pages/pinterest_page.dart';
 //!import 'package:design/src/pages/emergency_page.dart';
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:design/src/models/layout_model.dart';
 import 'package:design/src/pages/launcher_page.dart';
 import 'package:design/src/pages/launcher_tablet_page.dart';
@@ -15,9 +17,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(ChangeNotifierProvider(
-      create: (_) => new LayoutModel(),
+      create: (_) => LayoutModel(),
       child: ChangeNotifierProvider(
-        create: (_) => new ThemeChanger(2),
+        create: (_) => ThemeChanger(2),
         child: const MyApp(),
       ),
     ));
@@ -37,9 +39,9 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, Orientation orientation) {
           final screenSize = MediaQuery.of(context).size;
           if (screenSize.width > 500) {
-            return LauncherTabletPage();
+            return const LauncherTabletPage();
           } else {
-            return LauncherPage();
+            return const LauncherPage();
           }
 
           //return Container(

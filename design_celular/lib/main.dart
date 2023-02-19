@@ -7,13 +7,15 @@
 //!import 'package:design/src/pages/slideshow_page.dart';
 //!import 'package:design/src/pages/pinterest_page.dart';
 //!import 'package:design/src/pages/emergency_page.dart';
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:design/src/pages/launcher_page.dart';
 import 'package:design/src/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(ChangeNotifierProvider(
-      create: (_) => new ThemeChanger(2),
+      create: (_) => ThemeChanger(2),
       child: const MyApp(),
     ));
 
@@ -28,6 +30,6 @@ class MyApp extends StatelessWidget {
         theme: currentTheme,
         debugShowCheckedModeBanner: false,
         title: 'Diseños App',
-        home: LauncherPage());
+        home: const LauncherPage());
   }
 }

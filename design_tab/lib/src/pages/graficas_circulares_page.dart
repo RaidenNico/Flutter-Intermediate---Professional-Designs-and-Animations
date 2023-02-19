@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:design/src/theme/theme.dart';
 import 'package:design/src/widgets/radial_progress.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +81,7 @@ class CustomRadialProgress extends StatelessWidget {
       child: RadialProgress(
         porcentaje: porcentaje,
         colorPrimario: color,
-        colorSecundario: appTheme.textTheme.bodyText1!.color ?? Colors.grey,
+        colorSecundario: appTheme.textTheme.bodyLarge!.color ?? Colors.grey,
         grosorPrimario: 10,
         grosorSecundario: 4,
       ),
